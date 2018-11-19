@@ -24,16 +24,31 @@ Here is where you can work with your Network Services. You can deploy, check the
 
 ### Configure VIMs/WIMs
 
-After the installation of the SP, you need to add a VIM to the it, you can use a simple bash script like this one. Just replace the variables at the beginning (marked in yellow) with the correct values for your VIM.
+   After the installation of the SP, you need to attach a VIM. You can use [this](https://raw.githubusercontent.com/sonata-nfv/sonata-nfv.github.io/master/vim_script.sh) bash script to perform this task. To customize the configuration you will need to edit the script and modify the variables.
 
-You can use the bash script located [here](https://raw.githubusercontent.com/sonata-nfv/sonata-nfv.github.io/master/vim_script.sh).
+```bash
+#!/bin/bash
+user="username"
+password="password"
+tenant="tenantname"
+vim_ip="000.000.000.000"
+router="tenant router uuid"
+ext_net="external net uuid"
+city="city"
+country="country"
+name="vimname"
+```
 
-Before executing it, you only need to open it and replace the values of your OpenStack environment.
+To get the tenant router uuid you can go to openstack horizon dashboard and open the route: `project -> network -> routers -> (select your router) -> Overview -> ID`
+
+<p align="center"><img src="images/router-uuid.png" width="70%" /></p>
+
 
 ### Upload Images
 
 VNF images available in Openstack:
-   Check that the images are available in openstack if not you can upload these two images:
+   
+Check that the images are available in openstack if not you can upload these two images:
    a. [squid](http://bit.ly/5GTANGO_squid)
    b. [haproxy](http://bit.ly/5GTANGO_HAproxy)
 
